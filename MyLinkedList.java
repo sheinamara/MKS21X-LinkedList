@@ -25,13 +25,34 @@ public class MyLinkedList{
  public String toString(){
  }
 
- public Integer get(int index){}
- public Integer set(int index, Integer value){}
- public boolean contains(Integer value){}
- public int indexOf(Integer value){}
- public void add(int index, Integer value){}
- public Integer remove(int index){}
- public Integer remove(Integer value){} // indexOf() would be useful
+ public Integer get(int index){
+   if (index > size){
+     return 0;
+   }
+   int bingo = 0
+   while (index != 0){
+     bingo = getNext
+   }
+
+ }
+ public Integer set(int index, Integer value){
+
+ }
+ public boolean contains(Integer value){
+
+ }
+ public int indexOf(Integer value){
+
+ }
+ public void add(int index, Integer value){
+
+ }
+ public Integer remove(int index){
+
+ }
+ public Integer remove(Integer value){
+
+ } // indexOf() would be useful
 
 
 
