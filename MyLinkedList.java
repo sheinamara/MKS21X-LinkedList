@@ -27,6 +27,7 @@ public class MyLinkedList{
    return length;
  }
 
+ // adding a Node to the end of a MyLinkedList
  public boolean add(int value){
    Node toAdd;
    if (this.size() == 0){
@@ -60,16 +61,16 @@ public class MyLinkedList{
    return toReturn;
  }
 
- public Integer get(int index){
-   if (index > this.size()){
-     return 0;
+ public Integer get(int index) throws IndexOutOfBoundsException{
+   if (index > this.size() || index < 0){
+     throw new IndexOutOfBoundsException("Your index is greater than the length of the list!");
    }
-   int bingo = 0;
-   while (index != 0){
-     bingo = this.getNext();
+   Node current = start;
+   while (index - 1 != 0){
+     current = current.getNext();
      index = index - 1;
    }
-   return bingo;
+   return current.getData();
  }
 
  /*
