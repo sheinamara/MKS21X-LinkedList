@@ -1,39 +1,42 @@
 public class MyLinkedList{
- private int size;
+ private int length;
  private Node start,end;
 
  // constructor
- public MyLinkedList(int size_, Node start_, Node end_){
-   size = size_;
+ public MyLinkedList(int length_, Node start_, Node end_){
+   length = length_;
    if (start_ == end_){
-     size = 1;
+     length = 1;
    }
    if (start_ == null && end_ == null){
-     size = 0;
+     length = 0;
    }
    start = start_;
    end = end_;
  }
 
  public int size(){
-   return size;
+   return length;
  }
 
  public boolean add(int value){
+   if (this.size() == 0){
 
+   }
  }
  public String toString(){
  }
 
  public Integer get(int index){
-   if (index > size){
+   if (index > this.size()){
      return 0;
    }
    int bingo = 0
    while (index != 0){
-     bingo = getNext
+     bingo = getNext;
+     index = index - 1;
    }
-
+   return bingo;
  }
  public Integer set(int index, Integer value){
 
