@@ -67,7 +67,7 @@ public class MyLinkedList{
    }
    Node current = start;
    while (index - 1 != 0){
-     current = current.getNext();
+     current = current.next();
      index = index - 1;
    }
    return current.getData();
