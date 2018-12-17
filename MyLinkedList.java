@@ -81,36 +81,50 @@ public class MyLinkedList{
  }
 
  public int indexOf(Integer value){
-  int index = 0;
-  // keeps track of index
-  Node current = this.start;
-  // current node
-  while (index < this.size()){
-    // while index is in bounds!!!
-    if (current.getData() == value){
-      // if the current data is the value we want
-      return index;
-      // we return the index!!!
-    }
-    current = current.next();
-    index = index + 1;
-    // otherwise progress down the linked list
-  }
-  return -1;
-  // -1 means the value isn't there
-}
+   int index = 0;
+   // keeps track of index
+   Node current = this.start;
+   // current node
+   while (index < this.size()){
+     // while index is in bounds!!!
+     if (current.getData() == value){
+       // if the current data is the value we want
+       return index;
+       // we return the index!!!
+     }
+     current = current.next();
+     index = index + 1;
+     // incrementation
+   }
+   return -1;
+   // -1 means the value isn't there
+ }
+
+ public boolean contains(Integer value){
+   boolean inside = false;
+   int index = 0;
+   // keeps track of index
+   Node current = this.start;
+   while (index < this.size()){
+     // while index is in bounds!!!
+     if (current.getData() == value){
+       inside = true;
+       // if value is found inside the data, boolean is true
+     }
+     current = current.next();
+     index = index + 1;
+     // incrementation
+   }
+   return inside;
+ }
+
+
  /*
  public Integer set(int index, Integer value){
 
  }
 
 
- public boolean contains(Integer value){
-
- }
- public int indexOf(Integer value){
-
- }
  public void add(int index, Integer value){
 
  }
