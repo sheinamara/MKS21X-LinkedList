@@ -24,12 +24,12 @@ public class MyLinkedList{
  }
  */
 
- // getting the length
+ // Returns the number of elements in this list.
  public int size(){
    return length;
  }
 
- // adding a Node to the end of a MyLinkedList
+ // Appends the specified element to the end of this list.
  public boolean add(int value){
    Node toAdd;
    if (this.size() == 0){
@@ -53,7 +53,7 @@ public class MyLinkedList{
    // it can never be false???
  }
 
- // makes into String
+ // Returns a string representation of this collection.
  public String toString(){
    Node current = start;
    String toReturn = "" + current;
@@ -63,6 +63,7 @@ public class MyLinkedList{
    return toReturn;
  }
 
+ // Returns the element at the specified position in this list.
  public Integer get(int index) throws IndexOutOfBoundsException{
    if (index > this.size() || index < 0){
      throw new IndexOutOfBoundsException("Your index is greater than the length of the list!");
@@ -80,6 +81,7 @@ public class MyLinkedList{
    // get the "current" data which is list(index - 1 + 1)
  }
 
+ // Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
  public int indexOf(Integer value){
    int index = 0;
    // keeps track of index
@@ -100,6 +102,7 @@ public class MyLinkedList{
    // -1 means the value isn't there
  }
 
+ // Returns true if this list contains the specified element.
  public boolean contains(Integer value){
    boolean inside = false;
    int index = 0;
@@ -118,13 +121,38 @@ public class MyLinkedList{
    return inside;
  }
 
-
- /*
- public Integer set(int index, Integer value){
-
+ // Replaces the element at the specified position in this list with the specified element.
+ // USES A HELPER METHOD
+ public Integer set(int index, Integer value) throws IndexOutOfBoundsException{
+   if (index > this.size() || index < 0){
+     throw new IndexOutOfBoundsException("Your index is greater than the length of the list!");
+   }
+   Integer oldValue = this.getNode(index).getData();
+   // save the data of the old Node's value!!!
+   this.getNode(index).setData(value);
+   // set the data of the desired Node to our desired data
+   return oldValue;
  }
 
+ // HELPER METHOD
+ // gets the NODE at a given index
+ // private method because return type is Node
+ private Node getNode(int index){
+   int currentIndex = 0;
+   // start off at the first index
+   Node currentNode = this.start;
+   // start off at the first Node
+   while (currentIndex != index && currentIndex < this.size()){
+     // while we are not yet up to the index we need and haven't gone over the length
+     currentNode = currentNode.next();
+     currentIndex = currentIndex + 1;
+     // incrementation
+   }
+   return currentNode;
+   // when the while loop fails, it means we have gotten to our destination!!!
+ }
 
+ /*
  public void add(int index, Integer value){
 
  }
