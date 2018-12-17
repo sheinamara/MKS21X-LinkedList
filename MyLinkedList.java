@@ -5,6 +5,8 @@ public class MyLinkedList{
  // constructor
  public MyLinkedList(){
    length = 0;
+   start = null;
+   end = null;
  }
 
  // second constructor but don't know if it works
@@ -66,17 +68,43 @@ public class MyLinkedList{
      throw new IndexOutOfBoundsException("Your index is greater than the length of the list!");
    }
    Node current = start;
-   while (index - 1 != 0){
+   // we start at the first Node of the MyLinkedList
+   while (index - 1 != 0 || current.next() != null){
+     // we are going to keep looking at the one in front of us, so we have the index we want minus one
      current = current.next();
+     // set the current as the node after
      index = index - 1;
+     // subtract the index by one because we are one node closer
    }
    return current.getData();
+   // get the "current" data which is list(index - 1 + 1)
  }
 
+ public int indexOf(Integer value){
+  int index = 0;
+  // keeps track of index
+  Node current = this.start;
+  // current node
+  while (index < this.size()){
+    // while index is in bounds!!!
+    if (current.getData() == value){
+      // if the current data is the value we want
+      return index;
+      // we return the index!!!
+    }
+    current = current.next();
+    index = index + 1;
+    // otherwise progress down the linked list
+  }
+  return -1;
+  // -1 means the value isn't there
+}
  /*
  public Integer set(int index, Integer value){
 
  }
+
+
  public boolean contains(Integer value){
 
  }
