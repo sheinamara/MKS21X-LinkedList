@@ -55,11 +55,15 @@ public class MyLinkedList{
 
  // Returns a string representation of this collection.
  public String toString(){
+   if (this.size() == 0){
+     return "[]";
+   }
    Node current = start;
-   String toReturn = "" + current;
+   String toReturn = "[" + current;
    while (current.next() != null){
      toReturn = toReturn + ", " + current.next();
    }
+   toReturn = toReturn + "]";
    return toReturn;
  }
 
