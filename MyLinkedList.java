@@ -200,12 +200,63 @@ public class MyLinkedList{
    }
  }
 
-  /*
- public Integer remove(int index){
-
+ // Removes the element at the specified position in this list.
+ public Integer remove(int index) throws IndexOutOfBoundsException{
+   if (index > this.size() || index < 0){
+     throw new IndexOutOfBoundsException("Your index is greater than the length of the list! Or it's negative!!!");
+   }
+   if (index == 0){
+     // if we want to remove the first one
+     Node toRemove = getNode(0);
+     Node after = toRemove.next();
+     // the second node!
+     if (after == null){
+       // if the one we want to remove is the only one there, meaning that the node after it is null
+       start = null;
+       end = null;
+       this.length = 0;
+     }
+     else{
+       start = after;
+       // make the second node the starting node
+       after.setPrev(null);
+       // the node before the first node is always null
+       this.length = this.length - 1;
+     }
+     return toRemove.getData();
+   }
+   if (index == this.size() - 1){
+     // if we want to remove the last one
+     Node toRemove = getNode(this.size() - 1);
+     Node before = toRemove.prev();
+     // the second to last node!
+     end = before;
+     // just set it so it will just exclude the last value
+     end.setNext(null);
+     // the node after the last node is always null
+     this.length = this.length - 1;
+     return toRemove.getData();
+   }
+   else{
+     // if none of these cases
+     Node toRemove = getNode(index);
+     Node before = toRemove.prev();
+     Node after = toRemove.next();
+     before.setNext(after);
+     after.setPrev(before);
+     this.length = this.length - 1;
+     return toRemove.getData();
+   }
  }
- public boolean remove(Integer value){
 
- } // indexOf() would be useful
- */
+ // Removes the first occurrence of the specified element from this list, if it is present.
+ public boolean remove(Integer value){
+   if (this.contains(value)){
+     // if the element is inside
+     this.remove(indexOf(value));
+     // use the old method!!!
+     return true;
+   }
+   return false;
+ }
 }
