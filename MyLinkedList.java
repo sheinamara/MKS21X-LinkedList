@@ -162,6 +162,18 @@ public class MyLinkedList{
    if (index > this.size() || index < 0){
      throw new IndexOutOfBoundsException("Your index is greater than the length of the list! Or it's negative!!!");
    }
+   if (this.size() < 0){
+     // if there is nothing
+     Node toAdd = new Node(value, null, null);
+     start = toAdd;
+     this.length = this.length + 1;
+     // increment the length
+   }
+   if (index == this.size()){
+     // if you want to add to the last
+     add(value);
+     // we have a method to do that
+   }
    if (index == 0){
      // if you want to add to the front
      Node toAdd = new Node(value, null, start);
@@ -174,18 +186,6 @@ public class MyLinkedList{
      // make the start the one we just added
      this.length = this.length + 1;
      // increment the length
-   }
-   if (this.size() < 0){
-     // if there is nothing
-     Node toAdd = new Node(value, null, null);
-     start = toAdd;
-     this.length = this.length + 1;
-     // increment the length
-   }
-   if (index == this.size()){
-     // if you want to add to the last
-     add(value);
-     // we have a method to do that
    }
    else{
      Node before = this.getNode(index - 1);
@@ -258,5 +258,18 @@ public class MyLinkedList{
      return true;
    }
    return false;
+ }
+
+ // Connects two linked lists.
+ public void extend (MyLinkedList other){
+   this.end.setNext(other.start);
+   // set the end of the original list to the start of the other list
+   other.start.setPrev(this.end);
+   // do the same vice versa
+   this.length = this.length + other.length;
+   this.end = other.end;
+   other.length = 0;
+   other.start = null;
+   other.end = null;
  }
 }
